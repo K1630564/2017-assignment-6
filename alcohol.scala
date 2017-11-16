@@ -1,9 +1,13 @@
 // Part 2 about Alcohol-Consumption Worldwide
 //============================================
 
+
+
 object CW6b {
 
-import io.Source
+
+
+import scala.io.Source
 import scala.util._
 
 val url_alcohol = 
@@ -17,8 +21,7 @@ val file_population =
 
 def get_csv_page(url: String) : List[String] = {
 
-  val content = scala.io.Source.fromURL(url).mkString
-  content.split("\n").toList
+  val content = fromURL(url).mkString.split("\n").toList
 
 
 
@@ -30,8 +33,8 @@ def get_csv_page(url: String) : List[String] = {
 def get_csv_file(file: String) : List[String] = {
 
 
-  val content = scala.io.Source.fromFile(file).mkString
-  content.split("\n").toList
+  val content = fromFile(file).mkString.split("\n").toList
+
 
 }
 
@@ -46,7 +49,9 @@ def get_csv_file(file: String) : List[String] = {
 /*
 def process_alcs(lines: List[String]) : List[(String, Double)] = {
 
-  val newList : List[(String, Double)] = for(i <- 1 to lines.length){
+  val newList : List[(String, Double)] =
+
+    for(i<- 1 to lines.length){
     val oneLine = lines[i].split(",").toArray
     (oneLine[0], oneLine.takeRight[4])
   }
