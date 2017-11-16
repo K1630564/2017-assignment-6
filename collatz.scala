@@ -63,7 +63,7 @@ def collatz(n: Long, count: Long = 0) : Long = n match  {
 //     corresponding number.
 
 
-
+/*
   def collatz_max(bnd: Long) : (Long, Long) = {
 
     val hej = bnd.toInt
@@ -74,7 +74,7 @@ def collatz(n: Long, count: Long = 0) : Long = n match  {
 
     (maxValue, listOfCollatz.indexOf(maxValue) + 1)
   }
-
+*/
   }
 
 
