@@ -33,10 +33,10 @@ def collatz(n: Long) : Long = {
 //     the maximum number of steps and the second is the 
 //     corresponding number.
 
-def collatz_max(bnd: Long) : (Long, Long) = {
+//def collatz_max(bnd: Long) : (Long, Long) = {
 
 
-}
+//}
 
 
 }
