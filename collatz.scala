@@ -20,7 +20,7 @@ object CW6a {
   }
 
 
-
+/*
 
 
   def collatz_max(bnd: Long) : (Long, Long) = {
@@ -33,6 +33,7 @@ object CW6a {
 
     (maxValue, listOfCollatz.indexOf(maxValue) + 1)
   }
+  */
 
   }
 
