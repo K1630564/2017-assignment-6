@@ -65,9 +65,9 @@ def process_pops(lines: List[String]) : Map[String, Long] = {
     (i.split(",").take(1).mkString, i.split(",").takeRight(1).mkString.toLong)
   }
 
-  val smthng = newList.toMap
+  val newMap = newList.toMap
 
-  smthng
+  newMap
 }
 
 
