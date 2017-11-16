@@ -54,7 +54,7 @@ def process_alcs(lines: List[String]) : List[(String, Double)] = {
   val newList : List[(String, Double)] = for(i<- (1 to (lines.length - 1))) yield {
     val oneLine = lines(i)
     val splitLine = oneLine.split(",")
-    List(splitLine.take(1).mkString, splitLine.takeRight(1).mkString.toDouble)
+    List[(String, Double)](splitLine.take(1).mkString, splitLine.takeRight(1).mkString.toDouble)
 
   }
   newList
