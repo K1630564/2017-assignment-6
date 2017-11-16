@@ -1,3 +1,5 @@
+import java.awt.List
+import java.util
 // Part 1 about the 3n+1 conjecture
 //=================================
 
@@ -45,20 +47,21 @@ def collatz(n: Long, count: Long = 0) : Long = n match  {
 //     corresponding number.
 
 
-/*
+
   def collatz_max(bnd: Long) : (Long, Long) = {
 
-    for(i <- 1 to bnd){
-      val maxList = collatz(i)
-    }
 
-    val first = for (i <-1 to bnd) yield collatz(i)
-    val max = first.max
-    (max, first.indexOf(max) + 1)
+    val listOfCollatz = (1 to bnd).toList.map(i => collatz(i))
+
+    val maxValue = listOfCollatz.max
+
+    (maxValue, listOfCollatz.indexOf(maxValue) + 1)
   }
 
-*/
   }
+
+
+
 
 
 
