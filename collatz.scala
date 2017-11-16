@@ -11,16 +11,18 @@ object CW6a {
     if (n==1) {
       1 }
 
-    else if (n%2==1) {
-      collatz(n*3+1)+1
-    }
     else {
-      collatz(n/2) +1
+      if (n % 2 == 1) {
+        collatz(n * 3 + 1) + 1
+      }
+      else {
+        collatz(n / 2) + 1
+      }
     }
   }
 
 
-/*
+
 
 
   def collatz_max(bnd: Long) : (Long, Long) = {
@@ -33,7 +35,7 @@ object CW6a {
 
     (maxValue, listOfCollatz.indexOf(maxValue) + 1)
   }
-  */
+
 
   }
 
