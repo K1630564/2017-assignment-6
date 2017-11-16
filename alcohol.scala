@@ -53,20 +53,19 @@ def process_alcs(lines: List[String]) : List[(String, Double)] = {
 
   val newList = for(i<- 1 to lines.length - 1) yield (lines(i).split(",").take(1).mkString, lines(i).split(",").takeRight(1).mkString.toDouble)
 
-    val a = newList.toList
+    val toReturn = newList.toList
 
-    a
+    toReturn
 }
 
 
 def process_pops(lines: List[String]) : Map[String, Long] = {
 
-  val newList = for(i<- 1 to lines.length - 1) yield (lines(i).split(",").take(1).mkString, lines(i).split(",").takeRight(1).mkString.toDouble)
+  val newList = for(i<- 1 to lines.length - 1) yield (lines(i).split(",").take(1).mkString, lines(i).split(",").takeRight(1).mkString.toLong)
 
-  val a = newList.toList.toMap
+  val toReturn = newList.toList.toMap
 
-  a
-
+  toReturn
 }
 
 
