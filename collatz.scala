@@ -34,8 +34,6 @@ def collatz(n: Long) : Long = {
 //     corresponding number.
 
 def collatz_max(bnd: Long) : (Long, Long) = {
-    
-      def collatz_max(bnd: Long) : (Long, Long) = {
 
     val hej = bnd.toInt
 
@@ -50,4 +48,4 @@ def collatz_max(bnd: Long) : (Long, Long) = {
 }
 
 
-}
+
