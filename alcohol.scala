@@ -13,21 +13,26 @@ val file_population =
   "population.csv"
 
 
-//(1) Complete the get_csv_page function below. It takes a URL-string
-//    as argument and generates a list of strings corresponding to each
-//    line in the downloaded csv-list. The URL url_alcohol above is one 
-//    possible argument.
 
-//def get_csv_page(url: String) : List[String] = ...
+def get_csv_page(url: String) : List[String] = {
+
+  val content = scala.io.Source.fromURL(url).mkString
+  content.split("\n").toList
 
 
-//    Complete the get_csv_file function below. It takes a file name 
-//    as argument and reads the content of the given file. Like above,
-//    it should generate a list of strings corresponding to each
-//    line in the csv-list. The filename file_population is one possible
-//    argument.
 
-//def get_csv_file(file: String) : List[String] = ...
+}
+
+
+
+
+def get_csv_file(file: String) : List[String] = {
+
+
+  val content = scala.io.Source.fromFile(file).mkString
+  content.split("\n").toList
+
+}
 
 
 
