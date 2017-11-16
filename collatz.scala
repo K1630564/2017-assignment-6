@@ -10,25 +10,32 @@ object CW6a {
 //    performs the recursion. The function should expect
 //    arguments in the range of 1 to 1 Million.
 
-def collatz(n: Long, count: Long = 0) : AnyVal =  {
+def collatz(n: Long) : Long =  {
 
 
+val count = 1
 
-  if(n == 1) {
-    count + 1
-  }
-  else if(n % 2 == 0){
+  if(n == 1){
 
-    collatz(n / 2, count + 1)
+  count
 
   }
-  else if(n % 2 == 1){
+  else if (n % 2 == 1){
 
-    collatz((n * 3) + 1, count + 1)
-
-
-  }
+  val count2 = collatz(n * 3 + 1) + 1
+  count2
 }
+  else{
+  val count3 = collatz(n / 2) + 1
+  count 3
+}
+
+
+
+
+
+}
+
 
 
 //(2)  Complete the collatz-bound function below. It should
@@ -40,7 +47,21 @@ def collatz(n: Long, count: Long = 0) : AnyVal =  {
 //     the maximum number of steps and the second is the 
 //     corresponding number.
 
-//def collatz_max(bnd: Long) : (Long, Long) = ...
+
+/*
+  def collatz_max(bnd: Long) : (Long, Long) = {
+
+    for(i <- 1 to bnd){
+      val maxList = collatz(i)
+    }
+
+    val first = for (i <-1 to bnd) yield collatz(i)
+    val max = first.max
+    (max, first.indexOf(max) + 1)
+  }
+
+*/
+  }
 
 
-}
+
