@@ -55,7 +55,7 @@ def collatz(n: Long, count: Long = 0) : Long = n match  {
 
     val maxValue = listOfCollatz.max
 
-    (maxValue, listOfCollatz.indexOf(maxValue) + 1)
+    (maxValue, listOfCollatz.indexOf(maxValue))
   }
 
   }
