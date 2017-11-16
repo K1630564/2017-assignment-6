@@ -11,6 +11,7 @@ object CW6a {
 //    If needed, you can use an auxiliary function that
 //    performs the recursion. The function should expect
 //    arguments in the range of 1 to 1 Million.
+  /*
 
 def collatz(n: Long, count: Long = 0) : Long = n match  {
 
@@ -30,8 +31,22 @@ def collatz(n: Long, count: Long = 0) : Long = n match  {
 
   }
 
+*/
 
+  def collatz(n: Long): Long = {
+    val count=1
 
+    if (n==1) { count }
+
+    else if (n%2==1) {
+      val count2 =collatz(n*3+1)+1
+      count2
+    }
+    else {
+      val count3=collatz(n/2) +1
+      count3
+    }
+  }
 
 
 
