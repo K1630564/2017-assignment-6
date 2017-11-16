@@ -51,13 +51,14 @@ def get_csv_file(file: String) : List[String] = {
 def process_alcs(lines: List[String]) : List[(String, Double)] = {
 
 
-  val newList : List[(String, Double)] = for(i<- (1 to (lines.length - 1))) yield {
-    val oneLine = lines(i)
-    val splitLine = oneLine.split(",")
-    List[(String, Double)](splitLine.take(1).mkString, splitLine.takeRight(1).mkString.toDouble)
+  val newList = for(i<- 1 to lines.length - 1) yield
 
-  }
-  newList
+    val oneLineSplitted = lines(i).split(",")
+
+    oneLineSplitted.take(1).mkString, oneLineSplitted.takeRight(1).mkString.toDouble
+
+    newList.toList
+    newList
 }
 
 
