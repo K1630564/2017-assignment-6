@@ -7,7 +7,7 @@ object CW6b {
 
 
 
-import io.Source
+import scala.io.Source
 import scala.util._
 
 val url_alcohol = 
@@ -21,7 +21,7 @@ val file_population =
 
 def get_csv_page(url: String) : List[String] = {
 
-  val content = scala.io.Source.fromURL(url).mkString
+  val content = Source.fromURL(url).mkString
   content.split("\n").toList
 
 
@@ -34,7 +34,7 @@ def get_csv_page(url: String) : List[String] = {
 def get_csv_file(file: String) : List[String] = {
 
 
-  val content = scala.io.Source.fromFile(file).mkString
+  val content = Source.fromFile(file).mkString
   content.split("\n").toList
 
 }
@@ -47,21 +47,19 @@ def get_csv_file(file: String) : List[String] = {
 //    generate a Map of Strings (country names) to Long numbers 
 //    (population sizes). 
 
-/*
+
 def process_alcs(lines: List[String]) : List[(String, Double)] = {
 
-  theList =
 
-  val newList : List[(String, Double)] =
+  val newList : List[(String, Double)] = for(i<- (1 to (lines.length - 1))) yield {
+    val oneLine = lines(i)
+    val splitLine = oneLine.split(",")
+    List(splitLine.take(1).mkString, splitLine.takeRight(1).mkString.toDouble)
 
-    for(i<- 1 to lines.length){
-    val oneLine = lines[i].split(",").toArray
-    (oneLine[0], oneLine.takeRight[4])
   }
-
-  println(newList)
+  newList
 }
-*/
+
 
 //def process_pops(lines: List[String]) : Map[String, Long] = ...
 
