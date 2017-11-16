@@ -7,18 +7,15 @@ object CW6a {
 
 
   def collatz(n: Long): Long = {
-    val count=1
 
     if (n==1) {
-      count }
+      1 }
 
     else if (n%2==1) {
-      val count2 =collatz(n*3+1)+1
-      count2
+      collatz(n*3+1)+1
     }
     else {
-      val count3=collatz(n/2) +1
-      count3
+      collatz(n/2) +1
     }
   }
 
