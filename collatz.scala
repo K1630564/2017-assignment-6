@@ -10,7 +10,25 @@ object CW6a {
 //    performs the recursion. The function should expect
 //    arguments in the range of 1 to 1 Million.
 
-//def collatz(n: Long) : Long = ...
+def collatz(n: Long, count: Long = 0) : AnyVal =  {
+
+
+
+  if(n == 1) {
+    count + 1
+  }
+  else if(n % 2 == 0){
+
+    collatz(n / 2, count + 1)
+
+  }
+  else if(n % 2 == 1){
+
+    collatz((n * 3) + 1, count + 1)
+
+
+  }
+}
 
 
 //(2)  Complete the collatz-bound function below. It should
