@@ -36,7 +36,8 @@ def collatz(n: Long, count: Long = 0) : Long = n match  {
   def collatz(n: Long): Long = {
     val count=1
 
-    if (n==1) { count }
+    if (n==1) {
+      1 }
 
     else if (n%2==1) {
       val count2 =collatz(n*3+1)+1
@@ -63,7 +64,7 @@ def collatz(n: Long, count: Long = 0) : Long = n match  {
 //     corresponding number.
 
 
-/*
+
   def collatz_max(bnd: Long) : (Long, Long) = {
 
     val hej = bnd.toInt
@@ -74,7 +75,7 @@ def collatz(n: Long, count: Long = 0) : Long = n match  {
 
     (maxValue, listOfCollatz.indexOf(maxValue) + 1)
   }
-*/
+
   }
 
 
