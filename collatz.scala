@@ -33,10 +33,21 @@ def collatz(n: Long) : Long = {
 //     the maximum number of steps and the second is the 
 //     corresponding number.
 
-//def collatz_max(bnd: Long) : (Long, Long) = {
+def collatz_max(bnd: Long) : (Long, Long) = {
+    
+      def collatz_max(bnd: Long) : (Long, Long) = {
 
+    val hej = bnd.toInt
 
-//}
+    val listOfCollatz = (1 to hej).toList.map(i => collatz(i))
+
+    val maxValue = listOfCollatz.max
+
+    (maxValue, listOfCollatz.indexOf(maxValue) + 1)
+  }
+
+    
+}
 
 
 }
