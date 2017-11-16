@@ -37,7 +37,7 @@ def collatz_max(bnd: Long) : (Long, Long) = {
 
     val hej = bnd.toInt
 
-    val listOfCollatz = (1 to hej).toList.map(i => collatz(i))
+    val listOfCollatz = (i <- 1 to hej).toList.map(i => collatz(i))
 
     val maxValue = listOfCollatz.max
 
