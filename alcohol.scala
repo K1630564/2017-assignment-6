@@ -7,7 +7,7 @@ object CW6b {
 
 
 
-import scala.io.Source
+import io.Source
 import scala.util._
 
 val url_alcohol = 
@@ -21,7 +21,8 @@ val file_population =
 
 def get_csv_page(url: String) : List[String] = {
 
-  val content = fromURL(url).mkString.split("\n").toList
+  val content = scala.io.Source.fromURL(url).mkString
+  content.split("\n").toList
 
 
 
@@ -33,8 +34,8 @@ def get_csv_page(url: String) : List[String] = {
 def get_csv_file(file: String) : List[String] = {
 
 
-  val content = fromFile(file).mkString.split("\n").toList
-
+  val content = scala.io.Source.fromFile(file).mkString
+  content.split("\n").toList
 
 }
 
@@ -48,6 +49,8 @@ def get_csv_file(file: String) : List[String] = {
 
 /*
 def process_alcs(lines: List[String]) : List[(String, Double)] = {
+
+  theList =
 
   val newList : List[(String, Double)] =
 
