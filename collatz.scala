@@ -50,12 +50,13 @@ def collatz(n: Long, count: Long = 0) : Long = n match  {
 
   def collatz_max(bnd: Long) : (Long, Long) = {
 
+    val hej = bnd.toInt
 
-    val listOfCollatz = (1 to bnd).toList.map(i => collatz(i))
+    val listOfCollatz = (1 to hej).toList.map(i => collatz(i))
 
     val maxValue = listOfCollatz.max
 
-    (maxValue, listOfCollatz.indexOf(maxValue))
+    (maxValue, listOfCollatz.indexOf(maxValue) + 1)
   }
 
   }
