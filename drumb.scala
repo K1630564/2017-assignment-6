@@ -114,7 +114,7 @@ object CW6c {
 
     }
 
-    toReturn
+    toReturn.filter(_ != List(Some(0.0), Some(0.0)))
 
 
   }
