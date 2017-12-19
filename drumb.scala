@@ -72,15 +72,49 @@ object CW6c {
 
 
 
-// (2) The first function below calculates the change factor (delta) between
-//     a price in year n and a price in year n + 1. The second function calculates
-//     all change factors for all prices (from a portfolio). The input to this
-//     function are the nested lists created by get_prices above.
+  def get_delta(price_old: Option[Double], price_new: Option[Double]) : Option[Double] = {
 
-//def get_delta(price_old: Option[Double], price_new: Option[Double]) : Option[Double] = ...
 
-//def get_deltas(data: List[List[Option[Double]]]) :  List[List[Option[Double]]] = ...
 
+    if(price_new.isDefined && price_old.isDefined){
+
+      val pn: Double =  price_new.get
+
+      val po: Double = price_old.get
+
+      val toReturn = (pn - po) / po
+
+      Some(toReturn)
+
+    }
+
+    else{
+      None
+    }
+
+
+  }
+
+  def get_deltas(data: List[List[Option[Double]]]) :  List[List[Option[Double]]] = {
+
+    val toReturn = for(x <- data) yield {
+
+      val hej =  for(y <- x) yield {
+
+        val addTo: Option[Double] = get_delta(y, x.iterator.next())
+        addTo
+
+      }
+
+      hej
+
+
+    }
+
+    toReturn
+
+
+  }
 
 
 // (3) Write a function that given change factors, a starting balance and a year
