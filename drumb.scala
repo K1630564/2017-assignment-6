@@ -95,40 +95,53 @@ object CW6c {
 
   }
 
+
   def get_deltas(data: List[List[Option[Double]]]) :  List[List[Option[Double]]] = {
 
 
 
-    val toReturn = for(x <- data) yield {
+    val toReturn = for(x <- (0 until data.size-1).toList) yield {
 
-      val hej =  for(y <- x) yield {
+      val temp =  for(y <- (0 until data.head.size).toList) yield {
 
-        val neeew = x.indexOf(y)
-        val addTo: Option[Double] = get_delta(y, data.iterator.next()(neeew))
+        val addTo: Option[Double] = get_delta(data(x)(y), data(x+1)(y)  )
         addTo
 
       }
-
-      hej
+      temp
 
 
     }
 
-    toReturn.filter(_ != List(Some(0.0), Some(0.0)))
-
+    toReturn
 
   }
 
 
-// (3) Write a function that given change factors, a starting balance and a year
-//     calculates the yearly yield, i.e. new balance, according to our dump investment 
-//     strategy. Another function calculates given the same data calculates the
-//     compound yield up to a given year. Finally a function combines all 
-//     calculations by taking a portfolio, a range of years and a start balance
-//     as arguments.
+  def yearly_yield(data: List[List[Option[Double]]], balance: Long, year: Int) : Long ={
 
 
-//def yearly_yield(data: List[List[Option[Double]]], balance: Long, year: Int) : Long = ... 
+    val nrCompanies = data.head.size
+    val perCompany = balance / nrCompanies
+
+    if(data(year).nonEmpty){
+
+      val toReturn = for(x <- (0 until data(year).size).toArray) yield{
+
+        perCompany * data(year)(x).get
+
+
+
+      }
+
+      toReturn.sum.toLong + balance
+
+    }
+    else{
+      balance
+    }
+  }
+
 
 //def compound_yield(data: List[List[Option[Double]]], balance: Long, year: Int) : Long = ... 
 
