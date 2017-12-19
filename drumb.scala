@@ -46,7 +46,7 @@ object CW6c {
 
   }
 
-  def get_prices(portfolio: List[String], years: Range) : List[List[Option[Double]]] = {
+  def get_prices(portfolio: List[String], years: Range): List[List[Option[Double]]] = {
 
 
     val toReturn = for (x <- years) yield {
@@ -62,7 +62,6 @@ object CW6c {
       hej
 
 
-
     }
 
     toReturn.toList
@@ -71,14 +70,12 @@ object CW6c {
   }
 
 
-
-  def get_delta(price_old: Option[Double], price_new: Option[Double]) : Option[Double] = {
-
+  def get_delta(price_old: Option[Double], price_new: Option[Double]): Option[Double] = {
 
 
-    if(price_new.isDefined && price_old.isDefined){
+    if (price_new.isDefined && price_old.isDefined) {
 
-      val pn: Double =  price_new.get
+      val pn: Double = price_new.get
 
       val po: Double = price_old.get
 
@@ -88,7 +85,7 @@ object CW6c {
 
     }
 
-    else{
+    else {
       None
     }
 
@@ -96,15 +93,14 @@ object CW6c {
   }
 
 
-  def get_deltas(data: List[List[Option[Double]]]) :  List[List[Option[Double]]] = {
+  def get_deltas(data: List[List[Option[Double]]]): List[List[Option[Double]]] = {
 
 
+    val toReturn = for (x <- (0 until data.size - 1).toList) yield {
 
-    val toReturn = for(x <- (0 until data.size-1).toList) yield {
+      val temp = for (y <- (0 until data.head.size).toList) yield {
 
-      val temp =  for(y <- (0 until data.head.size).toList) yield {
-
-        val addTo: Option[Double] = get_delta(data(x)(y), data(x+1)(y)  )
+        val addTo: Option[Double] = get_delta(data(x)(y), data(x + 1)(y))
         addTo
 
       }
@@ -117,18 +113,17 @@ object CW6c {
 
   }
 
-  def yearly_yield(data: List[List[Option[Double]]], balance: Long, year: Int) : Long ={
+  def yearly_yield(data: List[List[Option[Double]]], balance: Long, year: Int): Long = {
 
 
     val nrCompanies = data.head.size
     val perCompany = balance / nrCompanies
 
-    if(data(year).nonEmpty){
+    if (data(year).nonEmpty) {
 
-      val toReturn = for(x <- (0 until data(year).size).toArray) yield{
+      val toReturn = for (x <- (0 until data(year).size).toArray) yield {
 
         perCompany * data(year)(x).get
-
 
 
       }
@@ -136,14 +131,13 @@ object CW6c {
       toReturn.sum.toLong + balance
 
     }
-    else{
+    else {
       balance
     }
   }
 
 
-
-  def compound_yield(data: List[List[Option[Double]]], balance: Long, year: Int) : Long = {
+  def compound_yield(data: List[List[Option[Double]]], balance: Long, year: Int): Long = {
 
     val s = for (x <- (0 until year).toArray) yield {
       yearly_yield(data, yearly_yield(data, balance, x), x)
@@ -151,13 +145,14 @@ object CW6c {
     s.sum
   }
 
-  def investment(portfolio: List[String], years: Range, start_balance: Long) : Long = {
+  def investment(portfolio: List[String], years: Range, start_balance: Long): Long = {
 
     val prices = get_prices(portfolio, years)
     val deltasPrices = get_deltas(prices)
 
 
-    compound_yield(deltasPrices, start_balance , deltasPrices.size)
+    compound_yield(deltasPrices, start_balance, deltasPrices.size)
 
 
   }
+}
