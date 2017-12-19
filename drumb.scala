@@ -101,12 +101,10 @@ object CW6c {
 
     val toReturn = for(x <- data) yield {
 
-      val neew = data.indexOf(x)
-
       val hej =  for(y <- x) yield {
 
         val neeew = x.indexOf(y)
-        val addTo: Option[Double] = get_delta(y, data(neew+1)(neeew))
+        val addTo: Option[Double] = get_delta(y, data.iterator.next()(neeew))
         addTo
 
       }
