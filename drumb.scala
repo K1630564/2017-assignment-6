@@ -97,11 +97,16 @@ object CW6c {
 
   def get_deltas(data: List[List[Option[Double]]]) :  List[List[Option[Double]]] = {
 
+
+
     val toReturn = for(x <- data) yield {
+
+      val neew = data.indexOf(x)
 
       val hej =  for(y <- x) yield {
 
-        val addTo: Option[Double] = get_delta(y, x.iterator.next())
+        val neeew = x.indexOf(y)
+        val addTo: Option[Double] = get_delta(y, data(neew+1)(neeew))
         addTo
 
       }
