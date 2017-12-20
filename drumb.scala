@@ -139,14 +139,15 @@ object CW6c {
 
   def compound_yield(data: List[List[Option[Double]]], balance: Long, year: Int) : Long = {
 
-    if(year == data.size - 1){
+    if(year == 0){
       yearly_yield(data, balance, year)
     }
     else{
 
-      compound_yield(data, yearly_yield(data, balance, year), year + 1)
+      compound_yield(data, yearly_yield(data, balance, year), year - 1)
     }
   }
+
 
 
   def investment(portfolio: List[String], years: Range, start_balance: Long) : Long = {
@@ -155,7 +156,7 @@ object CW6c {
     val deltasPrices = get_deltas(prices)
 
 
-    compound_yield(deltasPrices, start_balance , 0)
+    compound_yield(deltasPrices, start_balance , deltasPrices.size)
 
 
   }
