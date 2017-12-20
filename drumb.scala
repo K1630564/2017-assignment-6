@@ -139,12 +139,16 @@ object CW6c {
 
   def compound_yield(data: List[List[Option[Double]]], balance: Long, year: Int) : Long = {
 
-    val s : Array[Long] = for (x <- (0 until year - 1).toArray) yield {
+    val s : Array[Long] = for (x <- (0 until year).toArray) yield {
 
-      val newbalance = yearly_yield(data, balance, x)
+      if(x == 0){
+        yearly_yield(data, balance, x)
+      }
+      else {
+        val newbalance = yearly_yield(data, balance, x - 1)
 
-      yearly_yield(data, newbalance, x + 1)
-
+        yearly_yield(data, newbalance, x)
+      }
 
     }
 
