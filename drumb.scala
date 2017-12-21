@@ -10,10 +10,6 @@ object CW6c {
   val rstate_portfolio = List("PLD", "PSA", "AMT", "AIV", "AVB", "BXP", "CCI", "DLR", "EQIX", "EQR", "ESS", "EXR", "FRT", "GGP", "HCP")
 
 
-  // (1.a) The function below takes a stock symbol and a year as arguments.
-  //       It should read the corresponding CSV-file and read the January
-  //       data from the given year. The data should be collected in a list of
-  //       strings for each line in the CSV-file.
 
   import io.Source
   import scala.util._
